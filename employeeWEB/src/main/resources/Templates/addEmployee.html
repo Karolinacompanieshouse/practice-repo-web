@@ -30,6 +30,9 @@
     <h2 for="employee-postcode" th:text="|#{employee.postcode}|"></h2>
     <input id="employee-postcode" name="employee-postcode" type="text" maxlength="8" th:field="*{postcode}">
 
+    <h2 for="employee-salary" th:text="|#{employee.salary}|"></h2>
+    <input id="employee-salary" name="employee-salary" type="text" maxlength="8" th:field="*{salary}">
+
     <p></p>
     <button type="submit" name="action" th:text="|#{button.employee.goAdd}|">Add this employee?</button>
 </form>

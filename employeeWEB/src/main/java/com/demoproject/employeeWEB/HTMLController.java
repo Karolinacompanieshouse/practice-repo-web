@@ -12,7 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-
+import org.springframework.web.bind.annotation.PutMapping;
 
 @Controller
 public class HTMLController {
@@ -21,6 +21,7 @@ public class HTMLController {
     private static String SAVE_EMPLOYEE = "/saveEmployee";
     private static String ALL_EMPLOYEES = "/allEmployees";
     private static String DELETE_EMPLOYEE = "/deleteEmployee";
+    private static String UPDATE_EMPLOYEE ="/updateEmployee";
     private APIClientService apiClientService;
 
     @Autowired
@@ -80,6 +81,24 @@ public class HTMLController {
     public String sendInfoToDelete(@ModelAttribute Employee employee, Model model){
         String employeeURL = BASE_URL + DELETE_EMPLOYEE;
         apiClientService.postEmployee(employee, employeeURL);
+
+        ResponseEntity<Employees> response = apiClientService.getAllEmployees(BASE_URL + ALL_EMPLOYEES);
+        List<Employee> employees = Objects.requireNonNull(response.getBody()).getEmployees();
+        model.addAttribute("employees", employees);
+        return "allEmployees";
+    }
+
+
+    @GetMapping("/updateEmployee")
+    public String updateEmployee(Model model){
+        model.addAttribute("employee", new Employee());
+        return "updateEmployee";
+    }
+
+    @PostMapping("/showAfterUpdate")
+    public String sendInfoToUpdate(@ModelAttribute Employee employee, Model model){
+        String employeeURL = BASE_URL + UPDATE_EMPLOYEE;
+        apiClientService.putEmployee(employee, employeeURL);
 
         ResponseEntity<Employees> response = apiClientService.getAllEmployees(BASE_URL + ALL_EMPLOYEES);
         List<Employee> employees = Objects.requireNonNull(response.getBody()).getEmployees();

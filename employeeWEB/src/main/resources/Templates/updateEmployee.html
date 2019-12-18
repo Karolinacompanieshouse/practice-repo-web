@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<font face = "Comic sans MS">
+    <font color = "#ff8834">
+        <a class="button-main" href="/welcome">Back</a>
+        <center>
+            <h1>Here you can update the salary of an employee in the database!!</h1>
+            <h2>Enter the full name of the employee you want to update and their new salary</h2>
+
+
+            <form class="form" th:object="${employee}" th:action="@{/showAfterUpdate}" method="post">
+
+                <h2 for="employee-firstName" th:text="|#{employee.firstName}|"></h2>
+                <input id="employee-firstName" name="employee-firstName" type="text" maxlength="50" th:field="*{firstName}">
+
+                <h2 for="employee-lastName" th:text="|#{employee.lastName}|"></h2>
+                <input id="employee-lastName" name="employee-lastName" type="text" maxlength="50" th:field="*{lastName}">
+
+                <h2 for="employee-salary" th:text="|#{employee.salary}|"></h2>
+                <input id="employee-salary" name="employee-salary" type="number" maxlength="50" th:field="*{salary}">
+
+                <p></p>
+                <button type="submit" name="action" th:text="|#{button.employee.goUpdate}|">Update this employee?</button>
+            </form>
+        </center>
+    </font>
+</font>
+</body>
+</html>

@@ -22,6 +22,10 @@ public class APIClientService {
         restTemplate.postForEntity(url, employee, Employee.class);
     }
 
+    public void putEmployee(Employee employee, String url) {
+        restTemplate.put(url, employee, Employee.class);
+    }
+
     public ResponseEntity<Employees> getAllEmployees(String url) {
         return restTemplate.exchange(url, HttpMethod.GET, null, Employees.class);
     }
