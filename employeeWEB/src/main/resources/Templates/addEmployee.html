@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Adding employees</title>
+</head>
+<body>
+<font face = "Comic sans MS">
+    <font color = "#ff8834">
+        <a class="button-main" href="/welcome">Back</a>
+        <center>
+<h1><H>Here you can add an employee!!</H></h1>
+<form class="form" th:object="${employee}" th:action="@{/showAfterSave}" method="post">
+
+    <h2 for="employee-firstName" th:text="|#{employee.firstName}|"></h2>
+    <input id="employee-firstName" name="employee-firstName" type="text" maxlength="50" th:field="*{firstName}">
+
+    <h2 for="employee-lastName" th:text="|#{employee.lastName}|"></h2>
+    <input id="employee-lastName" name="employee-lastName" type="text" maxlength="50" th:field="*{lastName}">
+
+    <h2 for="employee-dob" th:text="|#{employee.dob}|"></h2>
+    <input id="employee-dob" name="employee-dob" type="text" maxlength="50" th:field="*{dateOfBirth}">
+
+    <h2 for="employee-aline1" th:text="|#{employee.aLine2}|"></h2>
+    <input id="employee-aline1" name="employee-aline1" type="text" maxlength="100" th:field="*{addressLine1}">
+
+    <h2 for="employee-aline2" th:text="|#{employee.aLine2}|"></h2>
+    <input id="employee-aline2" name="employee-aline2" type="text" maxlength="100" th:field="*{addressLine2}">
+
+    <h2 for="employee-postcode" th:text="|#{employee.postcode}|"></h2>
+    <input id="employee-postcode" name="employee-postcode" type="text" maxlength="8" th:field="*{postcode}">
+
+    <p></p>
+    <button type="submit" name="action" th:text="|#{button.employee.goAdd}|">Add this employee?</button>
+</form>
+
+        </center>
+    </font>
+</font>
+</body>
+</html>

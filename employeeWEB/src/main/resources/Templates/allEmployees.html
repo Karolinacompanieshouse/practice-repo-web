@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>All employees</title>
+</head>
+<body>
+<font face = "Comic sans MS">
+    <font color = "#ff8834">
+
+<a class="button-main" href="/welcome">Back</a>
+        <center>
+<div align="center">
+
+    <h1 >All employee information.</h1>
+    <div class="list-container">
+        <dl class="data-container" th:each="employee :${employees}">
+            <dt class="dt">First name : </dt>
+            <dd class="dd" th:text="${employee.firstName}">fistName</dd>
+            <dt class="dt">Last name : </dt>
+            <dd class="dd" th:text="${employee.lastName}">lastName</dd>
+            <dt class="dt">Date of birth : </dt>
+            <dd class="dd" th:text="${employee.dateOfBirth}">dateOfBirth</dd>
+            <dt class="dt">Address line 1 : </dt>
+            <dd class="dd" th:text="${employee.addressLine1}">addressLine1</dd>
+            <dt class="dt">Address Line 2 : </dt>
+            <dd class="dd" th:text="${employee.addressLine2}">addressLine2</dd>
+            <dt class="dt">Postcode : </dt>
+            <dd class="dd" th:text="${employee.postcode}">postcode</dd>
+            <dt class="dt">-----------------------------------</dt>
+        </dl>
+    </div>
+</div>
+        </center>
+    </font>
+    </font>
+</font>
+</body>
+</body>
+</html>
