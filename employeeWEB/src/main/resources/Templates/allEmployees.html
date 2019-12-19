@@ -16,7 +16,7 @@
     <div class="list-container">
         <dl class="data-container" th:each="employee :${employees}">
             <dt class="dt">First name : </dt>
-            <dd class="dd" th:text="${employee.firstName}">fistName</dd>
+            <dd class="dd" th:text="${employee.firstName}">firstName</dd>
             <dt class="dt">Last name : </dt>
             <dd class="dd" th:text="${employee.lastName}">lastName</dd>
             <dt class="dt">Date of birth : </dt>
@@ -29,6 +29,8 @@
             <dd class="dd" th:text="${employee.postcode}">postcode</dd>
             <dt class="dt">Salary : </dt>
             <dd class="dd" th:text="${employee.salary}">salary</dd>
+            <dt class="dt">Role : </dt>
+            <dd class="dd" th:text="${employee.role}">role</dd>
             <dt class="dt">-----------------------------------</dt>
         </dl>
     </div>

@@ -2,6 +2,8 @@ package com.demoproject.employeeWEB;
 
 import com.demoproject.employeeWEB.model.Employee;
 import com.demoproject.employeeWEB.model.Employees;
+import com.demoproject.employeeWEB.model.Role;
+import com.demoproject.employeeWEB.model.Roles;
 import com.demoproject.employeeWEB.service.APIClientService;
 import java.util.List;
 import java.util.Objects;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 @Controller
 public class HTMLController {
 
+    private static  String ALL_ROLES = "/allRoles";
     private static String BASE_URL= "http://localhost:8081";
     private static String SAVE_EMPLOYEE = "/saveEmployee";
     private static String ALL_EMPLOYEES = "/allEmployees";
@@ -106,5 +109,11 @@ public class HTMLController {
         return "allEmployees";
     }
 
-
+    @GetMapping("/viewRoles")
+    public String allRoles(Model model) {
+        ResponseEntity<Roles> response = apiClientService.getAllRoles(BASE_URL + ALL_ROLES);
+        List<Role> roles = Objects.requireNonNull(response.getBody()).getRoles();
+        model.addAttribute("roles", roles);
+        return "viewRoles";
+    }
 }

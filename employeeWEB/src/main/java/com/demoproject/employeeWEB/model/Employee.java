@@ -12,6 +12,8 @@ public class Employee {
     private String addressLine1;
     private String addressLine2;
     private double salary;
+    private String role;
+
 
     public String getFirstName() {
         return firstName;
@@ -64,4 +66,12 @@ public class Employee {
     public double getSalary() { return salary; }
 
     public void setSalary(double salary) { this.salary = salary; }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 }

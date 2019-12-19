@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>All Roles</title>
+</head>
+<body>
+<font face = "Comic sans MS">
+    <font color = "#ff8834">
+
+        <a class="button-main" href="/welcome">Back</a>
+        <center>
+            <div align="center">
+
+                <h1 >All roles.</h1>
+                <div class="list-container">
+                    <dl class="data-container" th:each="role :${roles}">
+                        <dt class="dt">Role name : </dt>
+                        <dd class="dd" th:text="${role.roleName}">roleName</dd>
+                        <dt class="dt">Band minimum : </dt>
+                        <dd class="dd" th:text="${role.bandMin}">bandMin</dd>
+                        <dt class="dt">Band maximum : </dt>
+                        <dd class="dd" th:text="${role.bandMax}">bandMax</dd>
+                        <dt class="dt">-----------------------------------</dt>
+                    </dl>
+                </div>
+            </div>
+        </center>
+    </font>
+</font>
+</font>
+</body>
+</body>
+</html>

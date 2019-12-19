@@ -2,6 +2,7 @@ package com.demoproject.employeeWEB.service;
 
 import com.demoproject.employeeWEB.model.Employee;
 import com.demoproject.employeeWEB.model.Employees;
+import com.demoproject.employeeWEB.model.Roles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -28,6 +29,10 @@ public class APIClientService {
 
     public ResponseEntity<Employees> getAllEmployees(String url) {
         return restTemplate.exchange(url, HttpMethod.GET, null, Employees.class);
+    }
+
+    public ResponseEntity<Roles> getAllRoles(String url) {
+        return restTemplate.exchange(url, HttpMethod.GET, null, Roles.class);
     }
 
 }
